@@ -1105,26 +1105,24 @@ class SurfPosNet(nn.Module):
         ############################################################
         ############################################################
         ############################################################
-        # ==========================================
-        # 🌟 [수술 1] 실시간 번역기(CLIP) 및 크로스 어텐션 장착!
-        # ==========================================
+        # 고차원 의미 추출을 위한 프리트레인 CLIP 토크나이저 및 텍스트/비전 인코더 선언        
         self.tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-base-patch32")
         self.text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-base-patch32")
         self.image_encoder = CLIPVisionModel.from_pretrained("openai/clip-vit-base-patch32")
         
-        # 🚨 [중요] CLIP 모델은 번역만 해야지 학습되면 안 됩니다! (GPU 메모리 폭발 방지)
+        # CLIP 모델은 번역만 사전학습 가중치 동결
         for param in self.text_encoder.parameters():
             param.requires_grad = False
         for param in self.image_encoder.parameters():
             param.requires_grad = False
             
-        # 3D 뼈대(Query)에 텍스트/이미지(Key/Value)를 주입할 크로스 어텐션 베란다!
+        # 3D 뼈대(Query)에 텍스트/이미지(Key/Value)를 주입할 크로스 어텐션 레이어 추가
         self.cross_attn = nn.MultiheadAttention(embed_dim=self.embed_dim, num_heads=12)
 
         return
 
        
-    # 🌟 [수술 2] 입(forward)에 text_cond, image_cond 매개변수 추가!
+    # forward에 text_cond, image_cond 매개변수 추가
     def forward(self, surfPos, timesteps, class_label, is_train=False, text_cond=None, image_cond=None):
         """ forward pass """
         bsz = timesteps.size(0)
@@ -1140,39 +1138,30 @@ class SurfPosNet(nn.Module):
             tokens = p_embeds + time_embeds + c_embeds
         else:
             tokens = p_embeds + time_embeds
-       
-        # 1. 기존 3D 트랜스포머 통과 (결과물은 Query 역할)
+
+        # 기존 3D 트랜스포머 통과 (결과물은 Query 역할)
         output = self.net(src=tokens.permute(1,0,2)) 
 
-        # ==========================================
-        # 🌟 [수술 3] 실시간 인코딩 및 어텐션 주입!
-        # ==========================================
         if text_cond is not None and image_cond is not None:
-            # no_grad(): 인코딩할 때 기울기(Gradient)를 계산하지 않아 연산 속도를 엄청나게 올립니다.
-            with torch.no_grad():
-                # 텍스트 번역
+            with torch.no_grad(): # 인코더 가중치가 업데이트되지 않도록 미분 연산 제외 (속도 향상)
+                # 텍스트 및 이미지 임베딩 벡터 추출
                 text_inputs = self.tokenizer(text_cond, padding=True, return_tensors="pt").to(surfPos.device)
                 text_features = self.text_encoder(**text_inputs).last_hidden_state
-                
-                # 이미지 번역
                 img_features = self.image_encoder(pixel_values=image_cond).last_hidden_state
                 
-            # 두 특징(Feature)을 가로로 길게 이어 붙입니다! (완벽한 멀티모달 조건)
-            # 모양: (배치크기, 텍스트길이+이미지길이, 768차원)
+            # 시각 정보와 텍스트 정보를 시퀀스 차원(dim=1)으로 병합
             cond_features = torch.cat([text_features, img_features], dim=1)
             
-            # 파이토치 MultiheadAttention에 넣기 위해 모양을 뒤집습니다. (Seq, Batch, Dim)
+            # Mixed Precision(AMP) 부동소수점 타입 불일치 에러 방지를 위한 동적 타입 캐스팅
             cond_features = cond_features.permute(1, 0, 2).to(output.dtype)
             
-            # 크로스 어텐션 실행 (3D 뼈대가 텍스트와 이미지 힌트를 받아들임)
+            # 크로스 어텐션 실행: Query(3D 형상 토큰)가 Key/Value(텍스트+이미지)의 특징적 힌트를 수용
             attn_out, _ = self.cross_attn(query=output, key=cond_features, value=cond_features)
-            
-            # 원래 3D 정보에 새로운 힌트를 더해줌 (잔차 연결)
-            output = output + attn_out 
-        # ==========================================
-       ############################################################
-       ############################################################
-       ############################################################
+            output = output + attn_out # 잔차 연결(Residual Connection)을 통한 학습 안정화
+
+        ############################################################
+        ############################################################
+        ############################################################
 
         output = self.net(src=tokens.permute(1,0,2)).transpose(0,1)
         pred = self.fc_out(output)

@@ -276,46 +276,30 @@ class SurfPosData(torch.utils.data.Dataset):
         from PIL import Image
         import torchvision.transforms as transforms
         
-        # A. BRepGen의 원본 데이터 경로(data_path)에서 폴더명과 부품명 분리하기
-        # 예: ".../abc_parsed/0000/00000000/Part2.pkl"
+        # 1. 3D 원본 파일명에서 상위폴더명, 8자리 ID, 부품명(Part) 동적 파싱
         path_parts = data_path.replace("\\", "/").split("/")
+        folder1, folder2 = path_parts[-3], path_parts[-2]
+        part_name = path_parts[-1].split('.')[0]
         
-        folder1 = path_parts[-3]    # "0000"
-        folder2 = path_parts[-2]    # "00000000" 
-        part_name = path_parts[-1].split('.')[0] # "Part2" (.pkl 떼어내기)
-        
-        # B. 2D 스케치 이미지 실시간 로드
-        # abc_images 폴더 안에 이미지가 "00000000.png" 형태
-        img_name = f"{folder2}.png" 
-        img_path = f"/mnt/sdb/TMEMJ/partABC_data/abc_images/{img_name}"
-        
-        # CLIP 규격 전처리 (224x224)
+        # 2. 2D 스케치 이미지 실시간 로드 및 CLIP 비전 규격(224x224, 정규화) 전처리
+        img_path = f"/mnt/sdb/TMEMJ/partABC_data/abc_images/{folder2}.png"
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
             transforms.Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711))
         ])
-        
-        if os.path.exists(img_path):
-            image = Image.open(img_path).convert("RGB")
-            image_cond = transform(image)
-        else:
-            import torch
-            image_cond = torch.zeros(3, 224, 224) # 이미지 없을 때의 방어 코드
+        image_cond = transform(Image.open(img_path).convert("RGB")) if os.path.exists(img_path) else torch.zeros(3, 224, 224)
 
-        # C. 유저님의 Captions 폴더에서 진짜 텍스트 캡션 실시간 로드!
+        import json
+        # 3. 유저 정의형 생 문자열(Raw String) 구조의 JSON 캡션 실시간 파싱
         caption_file_path = f"/mnt/sdb/TMEMJ/partABC_data/unzipped_001/{folder1}/{folder2}/Captions/{part_name}.json"
         text_cond = "A CAD mechanical part." # 기본값 
         
-        import json
         if os.path.exists(caption_file_path):
             with open(caption_file_path, "r", encoding="utf-8") as f:
                 caption_data = json.load(f)
-                
-                if isinstance(caption_data, str):
-                    text_cond = caption_data
+                if isinstance(caption_data, str): text_cond = caption_data
 
-        # D. 최종 4종 세트 배출
         label_val = data_class + 1 if data_class is not None else 0
         return (
             torch.FloatTensor(surf_pos), 

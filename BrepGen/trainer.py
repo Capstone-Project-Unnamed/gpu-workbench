@@ -334,15 +334,13 @@ class SurfPosTrainer():
                 ################################################################
                 ################################################################
                 ################################################################
-                # 🌟 [수정 1] dataset.py가 보내준 4종 세트 한 번에 다 받기!
+                # 4종 세트 수신
                 surfPos, class_label_data, text_cond, image_cond = data 
                 
-                # GPU로 데이터 올려주기
                 surfPos = surfPos.to(self.device)
-                image_cond = image_cond.to(self.device)
-                # (text_cond는 문자열 리스트라 지금 GPU로 보내지 않습니다)
+                image_cond = image_cond.to(self.device) # 이미지 GPU 이송
                 
-                # 기존의 cf(Classifier-Free) 로직 유지
+                # 조건부 학습 여부에 따라 클래스 라벨 GPU 이송
                 if self.use_cf:
                     class_label = class_label_data.to(self.device)
                 else:
@@ -352,13 +350,13 @@ class SurfPosTrainer():
                 
                 self.optimizer.zero_grad() # zero gradient
 
-                # Add noise (기존 코드 그대로)
+                # Add noise
                 timesteps = torch.randint(0, self.noise_scheduler.config.num_train_timesteps, (bsz,), device=self.device).long()  # [batch,]
                 surfPos_noise = torch.randn(surfPos.shape).to(self.device)  
                 surfPos_diffused = self.noise_scheduler.add_noise(surfPos, surfPos_noise, timesteps)
 
                 # Predict noise
-                # 🌟 [수정 2] 모델 입에 text_cond와 image_cond를 추가로 먹여줍니다!
+                # 모델 포워딩 시 멀티모달 가이드 인자 대입 및 학습 모드(is_train=True) 지정
                 surfPos_pred = self.model(
                     surfPos_diffused, 
                     timesteps, 
@@ -405,7 +403,7 @@ class SurfPosTrainer():
             #################################################################
             #################################################################
             #################################################################
-            # 🌟 [수정 1] train_one_epoch과 똑같이 4종 세트 한 번에 다 받기!
+            # 4종 세트
             surfPos, class_label_data, text_cond, image_cond = data 
             
             # 텐서 데이터들 GPU로 이동하기
@@ -427,8 +425,7 @@ class SurfPosTrainer():
                 surfPos_noise = torch.randn(surfPos.shape).to(self.device)  
                 surfPos_diffused = self.noise_scheduler.add_noise(surfPos, surfPos_noise, timesteps)
                 with torch.no_grad():
-                    # 🌟 [수정 2] 모델 호출 구멍에 text_cond와 image_cond를 똑같이 먹여줍니다!
-                    # 검증(Evaluation) 단계이므로 is_train=False로 넣어줍니다.
+                    # 검증(Inference) 단계이므로 가이드 조건 획득을 100% 보장하기 위해 is_train=False 선언
                     surfPos_pred = self.model(
                         surfPos_diffused, 
                         timesteps, 
