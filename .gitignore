@@ -1,0 +1,8 @@
+# node_modules 폴더가 깃허브에 올라가는 것을 방지
+node_modules/
+
+# 또는 스크립트 폴더 전체를 깃허브에 안 올리고 로컬에서만 쓰려면 폴더명 지정
+scripts/
+
+package-lock.json
+package.json
