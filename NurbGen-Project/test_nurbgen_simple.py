@@ -17,7 +17,7 @@ from datetime import datetime
 # ============================================================================
 # ⚙️ 설정: Flash Attention 사용 여부
 # ============================================================================
-FLASH_ATTENTION_ENABLED = True  # ← 문제 생기면 False로 바꾸기
+FLASH_ATTENTION_ENABLED = False  # ← 문제 생기면 False로 바꾸기
 # ============================================================================
 
 print("="*70)
@@ -160,6 +160,10 @@ try:
     # JSON 파싱 시도
     cad_json = json.loads(json_str)
     print("✓ JSON 파싱 성공")
+    
+    # intialization
+    face_types = {}
+    num_faces = 0
     
     # 구조 검증
     if "faces" not in cad_json:
