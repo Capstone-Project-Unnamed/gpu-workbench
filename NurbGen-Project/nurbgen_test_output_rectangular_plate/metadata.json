@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-07-02T17:06:51.263051",
+  "prompt": "Rectangular plate",
+  "generation_time_seconds": 154.30629062652588,
+  "generated_tokens": 1422,
+  "num_faces": 6,
+  "nurbs_count": 6,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 6
+  },
+  "success": true,
+  "flash_attention_enabled": false
+}

@@ -1,0 +1,17 @@
+{
+  "index": 17,
+  "prompt": "The CAD model is a tapered cylindrical shaft with a hexagonal base, featuring rounded edges and a conical tip. It has a central groove running along its length.",
+  "full_prompt": "Generate NURBS for the following: The CAD model is a tapered cylindrical shaft with a hexagonal base, featuring rounded edges and a conical tip. It has a central groove running along its length.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 147.67926049232483,
+  "generated_tokens": 1522,
+  "num_faces": 6,
+  "nurbs_count": 4,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u1v1": 4
+  },
+  "success": true
+}

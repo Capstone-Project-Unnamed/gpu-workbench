@@ -1,0 +1,17 @@
+{
+  "index": 12,
+  "prompt": "A pyramid with a flat circular base. The dimensions are 1.00 mm x 1.00 mm x 0.50 mm.",
+  "full_prompt": "Generate NURBS for the following: A pyramid with a flat circular base. The dimensions are 1.00 mm x 1.00 mm x 0.50 mm.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 77.47469973564148,
+  "generated_tokens": 799,
+  "num_faces": 2,
+  "nurbs_count": 1,
+  "trimmed_count": 1,
+  "degree_distribution": {
+    "u2v1": 1
+  },
+  "success": true
+}

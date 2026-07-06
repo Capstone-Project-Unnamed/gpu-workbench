@@ -1,0 +1,17 @@
+{
+  "index": 8,
+  "prompt": "Design a cylindrical component with hemispherical top and bottom ends. Include fillets at both ends. Dimensions: length 74.61 mm, width 107.95 mm, height 74.61 mm. Ensure smooth transitions between cylindrical and spherical sections.",
+  "full_prompt": "Generate NURBS for the following: Design a cylindrical component with hemispherical top and bottom ends. Include fillets at both ends. Dimensions: length 74.61 mm, width 107.95 mm, height 74.61 mm. Ensure smooth transitions between cylindrical and spherical sections.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 74.30684018135071,
+  "generated_tokens": 763,
+  "num_faces": 3,
+  "nurbs_count": 1,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u2v1": 1
+  },
+  "success": true
+}

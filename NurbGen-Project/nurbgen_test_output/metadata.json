@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-06-27T11:13:55.536633",
+  "prompt": "Cylindrical bushing with flanges on both ends, featuring a central hollow bore.",
+  "generation_time_seconds": 460.78944420814514,
+  "generated_tokens": 3639,
+  "num_faces": 0,
+  "face_types": {},
+  "success": true,
+  "flash_attention_enabled": false
+}

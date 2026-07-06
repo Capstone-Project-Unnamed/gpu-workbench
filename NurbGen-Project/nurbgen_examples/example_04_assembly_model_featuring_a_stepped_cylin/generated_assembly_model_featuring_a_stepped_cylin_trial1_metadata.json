@@ -1,0 +1,18 @@
+{
+  "index": 4,
+  "prompt": "Assembly model featuring a stepped cylindrical shaft, fitted through a central ring and washer, terminating in a larger hollow cylinder.",
+  "full_prompt": "Generate NURBS for the following: Assembly model featuring a stepped cylindrical shaft, fitted through a central ring and washer, terminating in a larger hollow cylinder.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 325.91698145866394,
+  "generated_tokens": 3333,
+  "num_faces": 6,
+  "nurbs_count": 4,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u3v3": 2,
+    "u2v1": 2
+  },
+  "success": true
+}

@@ -1,0 +1,17 @@
+{
+  "index": 3,
+  "prompt": "Cylindrical component with spherical caps on both ends, overall height 168.71 mm, diameter 22.71 mm. Features an elongated central section and a single horizontal slot at mid-height along its length.",
+  "full_prompt": "Generate NURBS for the following: Cylindrical component with spherical caps on both ends, overall height 168.71 mm, diameter 22.71 mm. Features an elongated central section and a single horizontal slot at mid-height along its length.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 456.5390932559967,
+  "generated_tokens": 4677,
+  "num_faces": 10,
+  "nurbs_count": 5,
+  "trimmed_count": 5,
+  "degree_distribution": {
+    "u1v1": 5
+  },
+  "success": true
+}

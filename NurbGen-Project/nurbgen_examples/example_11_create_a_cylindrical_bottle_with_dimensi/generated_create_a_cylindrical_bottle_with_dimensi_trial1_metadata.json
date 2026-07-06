@@ -1,0 +1,17 @@
+{
+  "index": 11,
+  "prompt": "Create a cylindrical bottle with dimensions 26mm x 26mm x 62.3mm. Include a rounded cap on top. Add a horizontal groove near the neck.",
+  "full_prompt": "Generate NURBS for the following: Create a cylindrical bottle with dimensions 26mm x 26mm x 62.3mm. Include a rounded cap on top. Add a horizontal groove near the neck.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 472.0850706100464,
+  "generated_tokens": 4864,
+  "num_faces": 9,
+  "nurbs_count": 6,
+  "trimmed_count": 3,
+  "degree_distribution": {
+    "u2v1": 6
+  },
+  "success": true
+}
