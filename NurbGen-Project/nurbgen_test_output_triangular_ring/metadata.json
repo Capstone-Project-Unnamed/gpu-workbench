@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-07-02T17:31:47.814635",
+  "prompt": "Triangular ring",
+  "generation_time_seconds": 152.31395053863525,
+  "generated_tokens": 1394,
+  "num_faces": 6,
+  "nurbs_count": 6,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 6
+  },
+  "success": true,
+  "flash_attention_enabled": false
+}

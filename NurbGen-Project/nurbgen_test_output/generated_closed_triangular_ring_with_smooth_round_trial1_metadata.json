@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-02T19:55:50.225599",
+  "prompt": "Generate NURBS for the following: Closed triangular ring with smooth, rounded tubular profile, three equal curved edges, consistent diameter",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 288.56198263168335,
+  "generated_tokens": 2851,
+  "num_faces": 12,
+  "nurbs_count": 12,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 12
+  },
+  "success": true,
+  "flash_attention_enabled": false
+}

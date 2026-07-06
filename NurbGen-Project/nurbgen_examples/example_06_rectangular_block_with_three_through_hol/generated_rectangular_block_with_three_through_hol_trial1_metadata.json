@@ -1,0 +1,18 @@
+{
+  "index": 6,
+  "prompt": "Rectangular block with three through-holes aligned horizontally on one face. Dimensions: Length 26.22 mm, width 3.18 mm, height 16.44 mm.",
+  "full_prompt": "Generate NURBS for the following: Rectangular block with three through-holes aligned horizontally on one face. Dimensions: Length 26.22 mm, width 3.18 mm, height 16.44 mm.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 297.8796441555023,
+  "generated_tokens": 3047,
+  "num_faces": 9,
+  "nurbs_count": 9,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 6,
+    "u2v1": 3
+  },
+  "success": true
+}

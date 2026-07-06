@@ -1,0 +1,17 @@
+Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square through-holes near each end.
+Closed triangular ring with smooth, rounded tubular profile, three equal curved edges, consistent diameter.
+Cylindrical component with spherical caps on both ends, overall height 168.71 mm, diameter 22.71 mm. Features an elongated central section and a single horizontal slot at mid-height along its length.
+Assembly model featuring a stepped cylindrical shaft, fitted through a central ring and washer, terminating in a larger hollow cylinder.
+Cylindrical component with hemispherical ends and two flanged faces. Features rounded edges and symmetrical design. Total length 14.32 mm, diameter 7.90 mm at widest points. Fillets present on transitions between cylindrical and spherical sections. No visible holes or threading.
+Rectangular block with three through-holes aligned horizontally on one face. Dimensions: Length 26.22 mm, width 3.18 mm, height 16.44 mm.
+A concentric cylindrical assembly showing multiple nested components, illustrating precise fit and structural configuration.
+Design a cylindrical component with hemispherical top and bottom ends. Include fillets at both ends. Dimensions: length 74.61 mm, width 107.95 mm, height 74.61 mm. Ensure smooth transitions between cylindrical and spherical sections.
+Design a hexagonal prism, measuring 39.91 mm in length, 38.44 mm in width, and 5.08 mm in height.
+Rectangular body, four rectangular protrusions at corners on one side. Dimensions: length 5.00 mm, width 6.20 mm, height 1.10 mm. No through holes present. Flat top surface. Symmetrical layout.
+Create a cylindrical bottle with dimensions 26mm x 26mm x 62.3mm. Include a rounded cap on top. Add a horizontal groove near the neck.
+A pyramid with a flat circular base. The dimensions are 1.00 mm x 1.00 mm x 0.50 mm.
+Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square throughholes near each end.
+Create two concentric hollow cylinders with visible crosssection, varying wall thicknesses, chamfered edges, and aligned along a shared central axis.
+Design a 400mm-long bundle of interlocking, crossshaped bars arranged in parallel. Maintain uniform spacing, and consistent wall thickness.
+A T-shaped assembly with cylindrical legs and a horizontal beam featuring rectangular cutouts on the top tube.
+The CAD model is a tapered cylindrical shaft with a hexagonal base, featuring rounded edges and a conical tip. It has a central groove running along its length.

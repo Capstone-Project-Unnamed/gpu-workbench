@@ -1,0 +1,17 @@
+{
+  "index": 5,
+  "prompt": "Cylindrical component with hemispherical ends and two flanged faces. Features rounded edges and symmetrical design. Total length 14.32 mm, diameter 7.90 mm at widest points. Fillets present on transitions between cylindrical and spherical sections. No visible holes or threading.",
+  "full_prompt": "Generate NURBS for the following: Cylindrical component with hemispherical ends and two flanged faces. Features rounded edges and symmetrical design. Total length 14.32 mm, diameter 7.90 mm at widest points. Fillets present on transitions between cylindrical and spherical sections. No visible holes or threading.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 202.97452354431152,
+  "generated_tokens": 2074,
+  "num_faces": 6,
+  "nurbs_count": 3,
+  "trimmed_count": 3,
+  "degree_distribution": {
+    "u2v1": 3
+  },
+  "success": true
+}

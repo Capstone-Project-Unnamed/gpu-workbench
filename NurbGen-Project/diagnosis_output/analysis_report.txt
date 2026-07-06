@@ -1,0 +1,16 @@
+======================================================================
+NURBGen JSON Generation Analysis Report
+======================================================================
+
+프롬프트: Socket head cap screw with a large countersunk washer. Features a hexagonal socket drive and a cylindrical threaded shank. Dimensions: length 92.96 mm, width 79.38 mm, height 43.66 mm. Ensure smooth curvature at transitions.
+
+생성 시간: 230.2초
+생성 토큰: 2283
+JSON 크기: 2852 자
+
+구조 분석:
+  - NURBS 표면: 4개
+  - Trimmed face: 0개
+  - 기타: 0개
+
+Top-level keys: ['face_0', 'face_1', 'face_2', 'face_3']

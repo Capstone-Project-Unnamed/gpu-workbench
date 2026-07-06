@@ -1,0 +1,271 @@
+======================================================================
+NURBGen Batch Processing
+로그 저장 위치: nurbgen_examples/batch_log_20260702_201643.txt
+======================================================================
+
+📋 STEP 0: 프롬프트 로드
+----------------------------------------------------------------------
+✓ 프롬프트 로드 성공: 17개
+  1. Design a rectangular plate with dimensions 330.20 mm x 233.4...
+  2. Closed triangular ring with smooth, rounded tubular profile,...
+  3. Cylindrical component with spherical caps on both ends, over...
+  4. Assembly model featuring a stepped cylindrical shaft, fitted...
+  5. Cylindrical component with hemispherical ends and two flange...
+  6. Rectangular block with three through-holes aligned horizonta...
+  7. A concentric cylindrical assembly showing multiple nested co...
+  8. Design a cylindrical component with hemispherical top and bo...
+  9. Design a hexagonal prism, measuring 39.91 mm in length, 38.4...
+  10. Rectangular body, four rectangular protrusions at corners on...
+  11. Create a cylindrical bottle with dimensions 26mm x 26mm x 62...
+  12. A pyramid with a flat circular base. The dimensions are 1.00...
+  13. Design a rectangular plate with dimensions 330.20 mm x 233.4...
+  14. Create two concentric hollow cylinders with visible crosssec...
+  15. Design a 400mm-long bundle of interlocking, crossshaped bars...
+  16. A T-shaped assembly with cylindrical legs and a horizontal b...
+  17. The CAD model is a tapered cylindrical shaft with a hexagona...
+
+📋 STEP 1: 환경 확인
+----------------------------------------------------------------------
+✓ GPU 사용 가능: True
+✓ GPU 개수: 4
+
+📦 STEP 2: 모델 로드 중... (한 번만 수행)
+----------------------------------------------------------------------
+Loading base model: Qwen/Qwen3-4B...
+✓ Tokenizer loaded
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|###3      | 1/3 [00:01<00:02,  1.40s/it]Loading checkpoint shards:  67%|######6   | 2/3 [00:02<00:01,  1.39s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:02<00:00,  1.06it/s]
+✓ Base model loaded
+Loading LoRA adapter: SadilKhan/NURBGen...
+✓ LoRA adapter loaded
+✓ Model in eval mode
+
+🎯 STEP 3: 배치 CAD 생성 (do_sample=True, temperature=0.3, 프롬프트당 1회)
+----------------------------------------------------------------------
+
+======================================================================
+[1/17] Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square through-holes near each end.
+======================================================================
+
+--- [1] trial1/1 ---
+  ✓ 생성 완료 (333.8초, 3294 tokens)
+  Face 개수: 14 (NURBS: 14, Trimmed: 0)
+  Degree 분포: {'u1v1': 14}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_01_design_a_rectangular_plate_with_dimensio/step_files/generated_design_a_rectangular_plate_with_dimensio_trial1.step (82.1KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_01_design_a_rectangular_plate_with_dimensio/step_files/generated_design_a_rectangular_plate_with_dimensio_trial1.stl (6.9KB)
+
+======================================================================
+[2/17] Closed triangular ring with smooth, rounded tubular profile, three equal curved edges, consistent diameter.
+======================================================================
+
+--- [2] trial1/1 ---
+  ✓ 생성 완료 (306.4초, 3134 tokens)
+  Face 개수: 9 (NURBS: 7, Trimmed: 2)
+  Degree 분포: {'u1v1': 6, 'u2v1': 1}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_02_closed_triangular_ring_with_smooth_round/step_files/generated_closed_triangular_ring_with_smooth_round_trial1.step (56.4KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_02_closed_triangular_ring_with_smooth_round/step_files/generated_closed_triangular_ring_with_smooth_round_trial1.stl (28.2KB)
+
+======================================================================
+[3/17] Cylindrical component with spherical caps on both ends, overall height 168.71 mm, diameter 22.71 mm. Features an elongated central section and a single horizontal slot at mid-height along its length.
+======================================================================
+
+--- [3] trial1/1 ---
+  ✓ 생성 완료 (456.5초, 4677 tokens)
+  Face 개수: 10 (NURBS: 5, Trimmed: 5)
+  Degree 분포: {'u1v1': 5}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_03_cylindrical_component_with_spherical_cap/step_files/generated_cylindrical_component_with_spherical_cap_trial1.step (59.2KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_03_cylindrical_component_with_spherical_cap/step_files/generated_cylindrical_component_with_spherical_cap_trial1.stl (4.0KB)
+
+======================================================================
+[4/17] Assembly model featuring a stepped cylindrical shaft, fitted through a central ring and washer, terminating in a larger hollow cylinder.
+======================================================================
+
+--- [4] trial1/1 ---
+  ✓ 생성 완료 (325.9초, 3333 tokens)
+  Face 개수: 6 (NURBS: 4, Trimmed: 2)
+  Degree 분포: {'u3v3': 2, 'u2v1': 2}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_04_assembly_model_featuring_a_stepped_cylin/step_files/generated_assembly_model_featuring_a_stepped_cylin_trial1.step (39.5KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_04_assembly_model_featuring_a_stepped_cylin/step_files/generated_assembly_model_featuring_a_stepped_cylin_trial1.stl (1717.4KB)
+
+======================================================================
+[5/17] Cylindrical component with hemispherical ends and two flanged faces. Features rounded edges and symmetrical design. Total length 14.32 mm, diameter 7.90 mm at widest points. Fillets present on transitions between cylindrical and spherical sections. No visible holes or threading.
+======================================================================
+
+--- [5] trial1/1 ---
+  ✓ 생성 완료 (203.0초, 2074 tokens)
+  Face 개수: 6 (NURBS: 3, Trimmed: 3)
+  Degree 분포: {'u2v1': 3}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_05_cylindrical_component_with_hemispherical/step_files/generated_cylindrical_component_with_hemispherical_trial1.step (34.2KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_05_cylindrical_component_with_hemispherical/step_files/generated_cylindrical_component_with_hemispherical_trial1.stl (73.6KB)
+
+======================================================================
+[6/17] Rectangular block with three through-holes aligned horizontally on one face. Dimensions: Length 26.22 mm, width 3.18 mm, height 16.44 mm.
+======================================================================
+
+--- [6] trial1/1 ---
+  ✓ 생성 완료 (297.9초, 3047 tokens)
+  Face 개수: 9 (NURBS: 9, Trimmed: 0)
+  Degree 분포: {'u1v1': 6, 'u2v1': 3}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_06_rectangular_block_with_three_through_hol/step_files/generated_rectangular_block_with_three_through_hol_trial1.step (57.6KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_06_rectangular_block_with_three_through_hol/step_files/generated_rectangular_block_with_three_through_hol_trial1.stl (47.5KB)
+
+======================================================================
+[7/17] A concentric cylindrical assembly showing multiple nested components, illustrating precise fit and structural configuration.
+======================================================================
+
+--- [7] trial1/1 ---
+  ✓ 생성 완료 (404.3초, 4147 tokens)
+  Face 개수: 11 (NURBS: 5, Trimmed: 6)
+  Degree 분포: {'u2v1': 5}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_07_a_concentric_cylindrical_assembly_showin/step_files/generated_a_concentric_cylindrical_assembly_showin_trial1.step (58.3KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_07_a_concentric_cylindrical_assembly_showin/step_files/generated_a_concentric_cylindrical_assembly_showin_trial1.stl (161.6KB)
+
+======================================================================
+[8/17] Design a cylindrical component with hemispherical top and bottom ends. Include fillets at both ends. Dimensions: length 74.61 mm, width 107.95 mm, height 74.61 mm. Ensure smooth transitions between cylindrical and spherical sections.
+======================================================================
+
+--- [8] trial1/1 ---
+  ✓ 생성 완료 (74.3초, 763 tokens)
+  Face 개수: 3 (NURBS: 1, Trimmed: 2)
+  Degree 분포: {'u2v1': 1}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_08_design_a_cylindrical_component_with_hemi/step_files/generated_design_a_cylindrical_component_with_hemi_trial1.step (14.9KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_08_design_a_cylindrical_component_with_hemi/step_files/generated_design_a_cylindrical_component_with_hemi_trial1.stl (40.5KB)
+
+======================================================================
+[9/17] Design a hexagonal prism, measuring 39.91 mm in length, 38.44 mm in width, and 5.08 mm in height.
+======================================================================
+
+--- [9] trial1/1 ---
+  ✓ 생성 완료 (475.6초, 4881 tokens)
+  Face 개수: 13 (NURBS: 1, Trimmed: 12)
+  Degree 분포: {'u1v1': 1}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_09_design_a_hexagonal_prism_measuring_39_91/step_files/generated_design_a_hexagonal_prism_measuring_39_91_trial1.step (65.2KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_09_design_a_hexagonal_prism_measuring_39_91/step_files/generated_design_a_hexagonal_prism_measuring_39_91_trial1.stl (7.2KB)
+
+======================================================================
+[10/17] Rectangular body, four rectangular protrusions at corners on one side. Dimensions: length 5.00 mm, width 6.20 mm, height 1.10 mm. No through holes present. Flat top surface. Symmetrical layout.
+======================================================================
+
+--- [10] trial1/1 ---
+  ✓ 생성 완료 (137.8초, 1415 tokens)
+  Face 개수: 6 (NURBS: 6, Trimmed: 0)
+  Degree 분포: {'u1v1': 6}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_10_rectangular_body_four_rectangular_protru/step_files/generated_rectangular_body_four_rectangular_protru_trial1.step (35.4KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_10_rectangular_body_four_rectangular_protru/step_files/generated_rectangular_body_four_rectangular_protru_trial1.stl (3.0KB)
+
+======================================================================
+[11/17] Create a cylindrical bottle with dimensions 26mm x 26mm x 62.3mm. Include a rounded cap on top. Add a horizontal groove near the neck.
+======================================================================
+
+--- [11] trial1/1 ---
+  ✓ 생성 완료 (472.1초, 4864 tokens)
+  Face 개수: 9 (NURBS: 6, Trimmed: 3)
+  Degree 분포: {'u2v1': 6}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_11_create_a_cylindrical_bottle_with_dimensi/step_files/generated_create_a_cylindrical_bottle_with_dimensi_trial1.step (58.1KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_11_create_a_cylindrical_bottle_with_dimensi/step_files/generated_create_a_cylindrical_bottle_with_dimensi_trial1.stl (582.4KB)
+
+======================================================================
+[12/17] A pyramid with a flat circular base. The dimensions are 1.00 mm x 1.00 mm x 0.50 mm.
+======================================================================
+
+--- [12] trial1/1 ---
+  ✓ 생성 완료 (77.5초, 799 tokens)
+  Face 개수: 2 (NURBS: 1, Trimmed: 1)
+  Degree 분포: {'u2v1': 1}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_12_a_pyramid_with_a_flat_circular_base_the/step_files/generated_a_pyramid_with_a_flat_circular_base_the_trial1.step (10.8KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_12_a_pyramid_with_a_flat_circular_base_the/step_files/generated_a_pyramid_with_a_flat_circular_base_the_trial1.stl (34.9KB)
+
+======================================================================
+[13/17] Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square throughholes near each end.
+======================================================================
+
+--- [13] trial1/1 ---
+  ✓ 생성 완료 (277.5초, 2855 tokens)
+  Face 개수: 5 (NURBS: 3, Trimmed: 2)
+  Degree 분포: {'u2v1': 3}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_13_design_a_rectangular_plate_with_dimensio/step_files/generated_design_a_rectangular_plate_with_dimensio_trial1.step (35.7KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_13_design_a_rectangular_plate_with_dimensio/step_files/generated_design_a_rectangular_plate_with_dimensio_trial1.stl (135.9KB)
+
+======================================================================
+[14/17] Create two concentric hollow cylinders with visible crosssection, varying wall thicknesses, chamfered edges, and aligned along a shared central axis.
+======================================================================
+
+--- [14] trial1/1 ---
+  ✓ 생성 완료 (290.8초, 2999 tokens)
+  Face 개수: 10 (NURBS: 8, Trimmed: 2)
+  Degree 분포: {'u1v1': 8}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_14_create_two_concentric_hollow_cylinders_w/step_files/generated_create_two_concentric_hollow_cylinders_w_trial1.step (62.8KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_14_create_two_concentric_hollow_cylinders_w/step_files/generated_create_two_concentric_hollow_cylinders_w_trial1.stl (5.0KB)
+
+======================================================================
+[15/17] Design a 400mm-long bundle of interlocking, crossshaped bars arranged in parallel. Maintain uniform spacing, and consistent wall thickness.
+======================================================================
+
+--- [15] trial1/1 ---
+  ✓ 생성 완료 (165.1초, 1705 tokens)
+  Face 개수: 5 (NURBS: 3, Trimmed: 2)
+  Degree 분포: {'u1v1': 3}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_15_design_a_400mm_long_bundle_of_interlocki/step_files/generated_design_a_400mm_long_bundle_of_interlocki_trial1.step (27.7KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_15_design_a_400mm_long_bundle_of_interlocki/step_files/generated_design_a_400mm_long_bundle_of_interlocki_trial1.stl (2.0KB)
+
+======================================================================
+[16/17] A T-shaped assembly with cylindrical legs and a horizontal beam featuring rectangular cutouts on the top tube.
+======================================================================
+
+--- [16] trial1/1 ---
+  ✓ 생성 완료 (107.1초, 1106 tokens)
+  Face 개수: 1 (NURBS: 1, Trimmed: 0)
+  Degree 분포: {'u2v2': 1}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_16_a_t_shaped_assembly_with_cylindrical_leg/step_files/generated_a_t_shaped_assembly_with_cylindrical_leg_trial1.step (4.9KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_16_a_t_shaped_assembly_with_cylindrical_leg/step_files/generated_a_t_shaped_assembly_with_cylindrical_leg_trial1.stl (39.1KB)
+
+======================================================================
+[17/17] The CAD model is a tapered cylindrical shaft with a hexagonal base, featuring rounded edges and a conical tip. It has a central groove running along its length.
+======================================================================
+
+--- [17] trial1/1 ---
+  ✓ 생성 완료 (147.7초, 1522 tokens)
+  Face 개수: 6 (NURBS: 4, Trimmed: 2)
+  Degree 분포: {'u1v1': 4}
+  STEP/STL 변환 중...
+  ✓ STEP 변환 완료: nurbgen_examples/example_17_the_cad_model_is_a_tapered_cylindrical_s/step_files/generated_the_cad_model_is_a_tapered_cylindrical_s_trial1.step (33.2KB)
+  ✓ STL 변환 완료: nurbgen_examples/example_17_the_cad_model_is_a_tapered_cylindrical_s/step_files/generated_the_cad_model_is_a_tapered_cylindrical_s_trial1.stl (3.0KB)
+
+🖼️  STEP 4: 콜라주 이미지 생성
+----------------------------------------------------------------------
+
+🖼️  콜라주 이미지 저장: nurbgen_examples/collage.png
+
+======================================================================
+✅ BATCH PROCESSING COMPLETE
+======================================================================
+
+📊 결과 요약:
+  • 총 프롬프트: 17개 (프롬프트당 1회 시도)
+  • 총 시도: 17회
+  • 성공: 17회 ✅
+  • 실패: 0회 ❌
+  • 성공률: 100.0%
+
+📁 저장 위치:
+  • nurbgen_examples/example_01_.../ ~ example_17_.../
+  • 로그: nurbgen_examples/batch_log_20260702_201643.txt
+  • 콜라주: nurbgen_examples/collage.png
+
+📋 상세 결과 저장: nurbgen_examples/batch_results.json
+

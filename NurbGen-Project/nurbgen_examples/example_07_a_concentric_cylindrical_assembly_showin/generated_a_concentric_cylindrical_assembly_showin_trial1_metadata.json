@@ -1,0 +1,17 @@
+{
+  "index": 7,
+  "prompt": "A concentric cylindrical assembly showing multiple nested components, illustrating precise fit and structural configuration.",
+  "full_prompt": "Generate NURBS for the following: A concentric cylindrical assembly showing multiple nested components, illustrating precise fit and structural configuration.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 404.2563428878784,
+  "generated_tokens": 4147,
+  "num_faces": 11,
+  "nurbs_count": 5,
+  "trimmed_count": 6,
+  "degree_distribution": {
+    "u2v1": 5
+  },
+  "success": true
+}

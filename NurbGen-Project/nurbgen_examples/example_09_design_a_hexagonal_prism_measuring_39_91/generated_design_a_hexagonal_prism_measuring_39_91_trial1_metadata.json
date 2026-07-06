@@ -1,0 +1,17 @@
+{
+  "index": 9,
+  "prompt": "Design a hexagonal prism, measuring 39.91 mm in length, 38.44 mm in width, and 5.08 mm in height.",
+  "full_prompt": "Generate NURBS for the following: Design a hexagonal prism, measuring 39.91 mm in length, 38.44 mm in width, and 5.08 mm in height.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 475.55231952667236,
+  "generated_tokens": 4881,
+  "num_faces": 13,
+  "nurbs_count": 1,
+  "trimmed_count": 12,
+  "degree_distribution": {
+    "u1v1": 1
+  },
+  "success": true
+}
