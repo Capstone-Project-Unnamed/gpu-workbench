@@ -1,0 +1,17 @@
+{
+  "index": 15,
+  "prompt": "Design a 400mm-long bundle of interlocking, crossshaped bars arranged in parallel. Maintain uniform spacing, and consistent wall thickness.",
+  "full_prompt": "Generate NURBS for the following: Design a 400mm-long bundle of interlocking, crossshaped bars arranged in parallel. Maintain uniform spacing, and consistent wall thickness.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 165.12121033668518,
+  "generated_tokens": 1705,
+  "num_faces": 5,
+  "nurbs_count": 3,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u1v1": 3
+  },
+  "success": true
+}

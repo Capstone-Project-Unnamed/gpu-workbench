@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-07-02T17:24:12.079017",
+  "prompt": "Cylindrical bushing",
+  "generation_time_seconds": 680.7033267021179,
+  "generated_tokens": 6653,
+  "num_faces": 9,
+  "nurbs_count": 7,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u2v2": 5,
+    "u2v1": 2
+  },
+  "success": true,
+  "flash_attention_enabled": false
+}

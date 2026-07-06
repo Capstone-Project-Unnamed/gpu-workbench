@@ -1,0 +1,17 @@
+{
+  "index": 1,
+  "prompt": "Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square through-holes near each end.",
+  "full_prompt": "Generate NURBS for the following: Design a rectangular plate with dimensions 330.20 mm x 233.40 mm x 6.00 mm. Include two square through-holes near each end.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 333.83216619491577,
+  "generated_tokens": 3294,
+  "num_faces": 14,
+  "nurbs_count": 14,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 14
+  },
+  "success": true
+}

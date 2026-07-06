@@ -1,0 +1,17 @@
+{
+  "index": 14,
+  "prompt": "Create two concentric hollow cylinders with visible crosssection, varying wall thicknesses, chamfered edges, and aligned along a shared central axis.",
+  "full_prompt": "Generate NURBS for the following: Create two concentric hollow cylinders with visible crosssection, varying wall thicknesses, chamfered edges, and aligned along a shared central axis.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 290.77801990509033,
+  "generated_tokens": 2999,
+  "num_faces": 10,
+  "nurbs_count": 8,
+  "trimmed_count": 2,
+  "degree_distribution": {
+    "u1v1": 8
+  },
+  "success": true
+}

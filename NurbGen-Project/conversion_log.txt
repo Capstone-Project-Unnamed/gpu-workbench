@@ -1,0 +1,12 @@
+2026-07-02 15:30:30,226 - MyLogger - INFO - Processing file: temp_export/generated_cad.json
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : nurbgen_test_output/step_files/generated_cad.step(578 ents)  Write  Done[0m
+2026-07-02 15:30:30,483 - MyLogger - SUCCESS - STEP file written successfully: nurbgen_test_output/step_files/generated_cad.step
+2026-07-02 15:30:30,533 - MyLogger - SUCCESS - STL File Saved nurbgen_test_output/step_files/generated_cad.stl

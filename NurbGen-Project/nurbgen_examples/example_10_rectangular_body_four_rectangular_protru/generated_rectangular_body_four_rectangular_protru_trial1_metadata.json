@@ -1,0 +1,17 @@
+{
+  "index": 10,
+  "prompt": "Rectangular body, four rectangular protrusions at corners on one side. Dimensions: length 5.00 mm, width 6.20 mm, height 1.10 mm. No through holes present. Flat top surface. Symmetrical layout.",
+  "full_prompt": "Generate NURBS for the following: Rectangular body, four rectangular protrusions at corners on one side. Dimensions: length 5.00 mm, width 6.20 mm, height 1.10 mm. No through holes present. Flat top surface. Symmetrical layout.",
+  "trial": 1,
+  "do_sample": true,
+  "temperature": 0.3,
+  "generation_time_seconds": 137.82334542274475,
+  "generated_tokens": 1415,
+  "num_faces": 6,
+  "nurbs_count": 6,
+  "trimmed_count": 0,
+  "degree_distribution": {
+    "u1v1": 6
+  },
+  "success": true
+}
