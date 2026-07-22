@@ -1,0 +1,18 @@
+{
+  "files.watcherExclude": {
+    "**/ckpts/**": true,
+    "**/test_outputs/**": true,
+    "**/neus/runs/**": true,
+    "**/neus/exp/**": true,
+    "**/neus/temp_mid_outputs/**": true,
+    "**/__pycache__/**": true,
+    "**/cached_output/**": true,
+    "**/build_dataset/**/assets/**": true,
+    "**/pyransac/cmake-build-release/**": true,
+    "**/pyransac/new_cmake-build-release/**": true,
+    "**/pyransac/pybind11/**": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true
+  }
+}
