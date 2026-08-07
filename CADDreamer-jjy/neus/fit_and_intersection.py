@@ -1031,7 +1031,7 @@ def fit_and_intersection(count, trimm_face_centers, trimm_all_labels, new_trimm,
   
             elif ransac_params[llb-1].getType() == 'Sphere':
                 center = ransac_params[llb-1].m_center
-                radius = ransac_params[llb-1].m_ius
+                radius = ransac_params[llb-1].m_radius
                 out_mesh = new_trimm.submesh(np.where(trimm_all_labels == llb - 1))[0]
 
                 sphere = Part.makeSphere(radius, App.Vector(center[0], center[1], center[2]))
@@ -1099,11 +1099,11 @@ def fit_and_intersection(count, trimm_face_centers, trimm_all_labels, new_trimm,
         assert o_faces is not None
         valid_path  = cfg.output_path+"/temp_valid_new_correct" + os.path.basename(cfg.config_dir)
         save_cache_dill([ o_faces, tshapes], valid_path)
-        return o_faces     
+        return o_faces
     except Exception as _e1:
         import traceback; traceback.print_exc()
         print("Generate step file error, you must need primitive stitching to fix the parameter errors.")
-    
+
     if o_faces is None:
         try:
             newton_shapes = correct_parameters_lagrange(cfg, newton_shapes, output_source_meshes, relationship_find,

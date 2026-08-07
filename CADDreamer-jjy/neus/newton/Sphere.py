@@ -31,7 +31,7 @@ class Sphere:
         # return False
         center_to_points = mesh.vertices - self.m_center
         points_to_out = mesh.vertex_normals
-        flag = np.dot(center_to_points, points_to_out)
+        flag = np.sum(center_to_points * points_to_out, axis=1)
         if len(np.where(flag>0)[0]) > len(np.where(flag<0)[0]):
             isIn = True
         else:

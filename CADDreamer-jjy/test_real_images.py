@@ -1743,6 +1743,20 @@ def export_labeled_mesh(mesh, face_labels, out_path):
     print(f"[vis] saved {out_path} ({len(unique_labels)} labels)")
 
 
+def apply_instantmesh_axis_transform(vertices):
+    """Maps an InstantMesh-convention mesh's raw vertex axes into Wonder3D/Blender's
+    coordinate convention (front camera at world -Y looking toward +Y, Z-up). Found
+    empirically, not analytically - brute-forced all 24 proper (non-mirroring) axis-
+    permutation rotations and checked each against Wonder3D's own front_normal_map.png
+    reference; a cup's asymmetric handle was needed to disambiguate (a cylinder alone
+    is too symmetric - several candidates look plausible on it). Not a general-purpose
+    transform for arbitrary InstantMesh exports - re-derive the same way if InstantMesh's
+    own convention changes.
+    """
+    v = np.asarray(vertices, dtype=np.float64)
+    return np.stack([v[:, 0], v[:, 2], -v[:, 1]], axis=1)
+
+
 """
 --config_dir /mnt/sdb/TMEMJ/CADDreamer-jjy/cached_output/cropsize-256-cfg1.0/0_0deepcad --review False
 """
@@ -1757,6 +1771,11 @@ if __name__=='__main__':
     parser.add_argument("--surfaces_multiprocessing", type=int, default=1)
     parser.add_argument('--config_dir', type=str, required=True)
     parser.add_argument('--review', type=str, default="True")
+    parser.add_argument('--substitute_mesh', type=str, default=None,
+                         help="Path to a mesh (e.g. an InstantMesh .obj) to use in place of "
+                              "NeuS's own False_mm.obj for this run. Axis-transformed into "
+                              "Wonder3D/Blender's convention via apply_instantmesh_axis_transform "
+                              "instead of NeuS's own [0,2,1]+negate-Z remap.")
     cfg = parser.parse_args()
     cfg.review = cfg.review == "True"
 
@@ -1784,9 +1803,15 @@ if __name__=='__main__':
             used_views = ['front', 'front_right', 'right', 'back', 'left', 'front_left']
 
         with time_block("Second steps: get 3D partial instances from multi-view semantic maps"):
-            mm = tri.load(os.path.join(cfg.config_dir, "False_mm.obj"))
-            tt = mm.vertices[:,[0,2,1]]
-            tt[:, 2] = - tt[:, 2]
+            if cfg.substitute_mesh:
+                mm = tri.load(cfg.substitute_mesh, force="mesh", process=False)
+                tt = apply_instantmesh_axis_transform(mm.vertices)
+                print(f"[substitute_mesh] using {cfg.substitute_mesh} instead of NeuS's False_mm.obj "
+                      f"(InstantMesh axis transform applied)")
+            else:
+                mm = tri.load(os.path.join(cfg.config_dir, "False_mm.obj"))
+                tt = mm.vertices[:,[0,2,1]]
+                tt[:, 2] = - tt[:, 2]
             mesh = tri.Trimesh(tt, mm.faces)
             mesh = simplify(mesh, 40000)
             mesh.export(os.path.join(vis_dir, "5_neus_mesh.ply"))

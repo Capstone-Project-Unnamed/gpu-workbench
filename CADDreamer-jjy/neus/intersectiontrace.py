@@ -8107,6 +8107,12 @@ def get_select_edges(shapes, newton_shapes,  all_loops):
                 if any(not (0 <= pi < len(shapes)) for pi in edge_primitives):
                     print(f"[GUARD] out-of-range primitive idx in {edge_primitives} (n_shapes={len(shapes)})")
                     continue
+                # An intersection edge must reference exactly 2 primitives; a
+                # degenerate/duplicate-collapsed entry (len 1 or >2) would index
+                # shape_primitives[1] out of range downstream — skip it instead.
+                if len(set(edge_primitives)) != 2:
+                    print(f"[GUARD] edge_primitives is not a pair: {edge_primitives}")
+                    continue
                 select_edges_0, select_edges_1, removed_edges_0, removed_edges_1, edge_map, edge_to_vertices_map = get_select_intersectionline(shapes,
                                                                                             newton_shapes,
                                                                                             edge_primitives,
@@ -9055,11 +9061,23 @@ def get_final_edge(start_node, end_node, cut_res_edges, coordinates):
 
     # if len(edges_in_path[0]) > 0:
     #     merge_edges( edges_in_path[0])
+    _diag_empty = (len(edges_in_path) == 0) or (len(edges_in_path[0]) == 0)
+    if _diag_empty:
+        src_idx = int(np.argmin(distance_to_start_node))
+        tgt_idx = int(np.argmin(distance_to_end_node))
+        n_comp = nx.number_connected_components(node_graph) if node_graph.number_of_nodes() > 0 else 0
+        same_comp = False
+        try:
+            same_comp = nx.has_path(node_graph, src_idx, tgt_idx)
+        except Exception:
+            pass
+        print(f"[GUARD-DIAG] get_final_edge empty. reason={'no_simple_path' if len(edges_in_path)==0 else 'trivial_same_node_path'} "
+              f"src_idx==tgt_idx:{src_idx == tgt_idx} n_nodes={len(all_nodes)} n_cut_edges={len(cut_res_edges)} "
+              f"n_components={n_comp} same_component={same_comp} "
+              f"start_dist={min(distance_to_start_node):.6f} end_dist={min(distance_to_end_node):.6f} "
+              f"start_node={occV2arr(start_node).tolist()} end_node={occV2arr(end_node).tolist()} "
+              f"nearest_to_start={all_nodes[src_idx] if all_nodes else None} nearest_to_end={all_nodes[tgt_idx] if all_nodes else None}")
     if len(edges_in_path) == 0:
-        # No simple path between the nearest start/end graph nodes (disconnected or
-        # degenerate cut-result graph). Signal the caller with an empty result instead
-        # of crashing on edges_in_path[0]; the caller skips this loop entry.
-        print("[GUARD] get_final_edge: no path found between start/end nodes")
         return [], []
     return edges_in_path[0], nodes_in_path[0]
 
